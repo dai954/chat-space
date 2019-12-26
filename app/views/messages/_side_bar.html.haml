@@ -1,0 +1,20 @@
+.wrapper
+  .side-bar
+    .side-bar__header
+      .side-bar__header--box
+        .side-bar__header--box--name
+          dai
+        %ul.side-bar__header--box--lists
+          %li.list
+            %a{:href => "/groups/new"}
+              = icon('fas','edit')
+          %li.list
+            %a{:href => "/users/15452/edit"}
+              = icon('fas','cog')
+    .groups
+      .groups__main
+        %a{:href => "/groups/34402/messages"}
+          .groups__main--name
+            uuu
+          .groups__main--message
+            まだメッセージはありません。
