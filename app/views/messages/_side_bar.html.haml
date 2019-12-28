@@ -3,13 +3,15 @@
     .side-bar__header
       .side-bar__header--box
         .side-bar__header--box--name
-          = current_user.name
+          -# = current_user.name
+          dais
         %ul.side-bar__header--box--lists
           %li.list
             = link_to do
               %i.fa.fa-edit
           %li.list
-            = link_to edit_user_path(current_user) do
+            -# = link_to edit_user_path(current_user) do
+            = link_to "#" do
               %i.fa.fa-cog
     .groups
       .groups__main
