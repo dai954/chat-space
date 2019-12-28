@@ -1,0 +1,30 @@
+.wrapper
+  .chat
+    .chat__header
+      .chat__header--left
+        .chat__header--left--title
+          uuu
+        %ul.chat__header--left--members
+          Member：
+          %li.member
+            iii
+      .chat__header--right
+        %a.right-header__button{:href => "/groups/34402/edit"} Edit
+    .chat__messages.js-messages
+      .chat__messages--message
+        .chat__messages--message--upperMessage
+          .chat__messages--message--upperMessage--name
+            koko
+          .chat__messages--message--upperMessage--date
+            2020 00/00 00
+        .chat__messages--message--lowerMessage
+          GOOD MOUNING
+    .chat__form
+      %form.new_message
+        .input-box
+          %input{type: "text", class: "input-box__text", placeholder: "type a message"}/
+          %label{class: "input-box__image"}
+            = icon('fas','image')
+            -# %i.fa.fa-file-image.icon
+            %input{type: "file",  class: "input-box__image__file"}
+        %input{type: "submit", class: "submit-btn", value: "Send" }
