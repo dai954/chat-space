@@ -6,15 +6,16 @@
           = current_user.name
         %ul.side-bar__header--box--lists
           %li.list
-            = link_to do
+            = link_to new_group_path do
               %i.fa.fa-edit
           %li.list
             = link_to edit_user_path(current_user) do
               %i.fa.fa-cog
     .groups
-      .groups__main
-        = link_to "/groups/34402/messages" do
-          .groups__main--name
-            uuu
-          .groups__main--message
-            まだメッセージはありません。
+      - current_user.groups.each do |group|
+        .groups__main
+          = link_to "#" do
+            .groups__main--name
+              = group.name
+            .groups__main--message
+              まだメッセージはありません。
