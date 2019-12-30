@@ -14,8 +14,8 @@
     .groups
       - current_user.groups.each do |group|
         .groups__main
-          = link_to "#" do
+          = link_to group_messages_path(group) do
             .groups__main--name
               = group.name
             .groups__main--message
-              まだメッセージはありません。
+              = group.show_last_message

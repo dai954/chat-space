@@ -3,28 +3,55 @@
     .chat__header
       .chat__header--left
         .chat__header--left--title
-          uuu
+          = @group.name
         %ul.chat__header--left--members
           Member：
           %li.member
-            iii
+            - @group.users.each do |user|
+              = user.name
       .chat__header--right
-        %a.right-header__button{:href => "/groups/id/edit"} Edit
+        = link_to edit_group_path(@group) do
+          .right-header__button
+            Edit
     .chat__messages.js-messages
-      .chat__messages--message
-        .chat__messages--message--upperMessage
-          .chat__messages--message--upperMessage--name
-            koko
-          .chat__messages--message--upperMessage--date
-            2020 00/00 00
-        .chat__messages--message--lowerMessage
-          GOOD MOUNING
+      = render @messages
+
     .chat__form
-      %form.new_message
+      = form_for [@group, @message] do |f|
         .input-box
-          %input{type: "text", class: "input-box__text", placeholder: "type a message"}/
-          %label{class: "input-box__image"}
-            = icon('fas','image')
-            -# %i.fa.fa-file-image.icon
-            %input{type: "file",  class: "input-box__image__file"}
-        %input{type: "submit", class: "submit-btn", value: "Send" }
+          = f.text_field :content, class: "input-box__text", placeholder: "type a message"
+          = f.label :image, class: "input-box__image" do
+            = icon('fas', 'image')
+            =f.file_field :image, class: "input-box__image__file"
+        = f.submit "Send", class: "submit-btn"
+
+
+  -# 学習メモ
+-# = render @messages が下記の略
+  -# @messages.each |message| do
+  -# render partial: 'message', locals{message:message}
+  -# end
+-# モデル名と部分テンプレート名が違う場合
+  -# render partial:'test',cllection: @messages
+
+
+  -# 答え
+  -#   .form
+  -#     = form_for [@group, @message] do |f|
+  -#       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+  -#       .form__mask
+  -#         = f.label :image, class: 'form__mask__image' do
+  -#           = icon('fas', 'image', class: 'icon')
+  -#           = f.file_field :image, class: 'hidden'
+  -#       = f.submit 'Send', class: 'form__submit'
+
+  -# 原本
+  -#   .chat__form
+  -#     %form.new_message
+  -#       .input-box
+  -#         %input{type: "text", class: "input-box__text", placeholder: "type a message"}/
+  -#         %label{class: "input-box__image"}
+  -#           = icon('fas','image')
+  -#           -# %i.fa.fa-file-image.icon
+  -#           %input{type: "file",  class: "input-box__image__file"}
+  -#       %input{type: "submit", class: "submit-btn", value: "Send" }
