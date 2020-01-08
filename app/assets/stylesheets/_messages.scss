@@ -49,13 +49,13 @@
     }
   }
   &__messages {
+    overflow: scroll;
     background-color: #fafafa;
     border-top: solid 1px #eeeeee;
     height: calc(100% - 190px);
     width: 100%;
     padding: 40px 46px 0;
     &--message {
-    height: 80px;
     margin-bottom: 46px;
       &--upperMessage{
         height: 20px;
@@ -157,6 +157,7 @@
   }
 
   .groups {
+    overflow: scroll;
     height: calc(100% - 100px);
     width: 100%;
     background-color: #2f3e51;
