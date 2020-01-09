@@ -28,7 +28,7 @@ $(function(){
       }
     })
     .fail(function() {
-      console.log('error');
+      alert("メッセージのリロードに失敗しました");
     });
   };
 
